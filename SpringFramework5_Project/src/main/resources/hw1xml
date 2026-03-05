@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Product1 : Setter Injection -->
+    <bean id="product1" class="hw1.Product">
+        <property name="id" value="P001"/>
+        <property name="name" value="노트북"/>
+        <property name="price" value="150000"/>
+    </bean>
+
+    <!-- Product2 : Constructor Injection -->
+    <bean id="product2" class="hw1.Product">
+        <constructor-arg value="P002"/>
+        <constructor-arg value="스마트폰"/>
+        <constructor-arg value="800000"/>
+    </bean>
+
+    <!-- ShoppingCart Bean -->
+    <bean id="shoppingCart" class="hw1.ShoppingCart">
+        <property name="products">
+            <list>
+                <ref bean="product1"/>
+                <ref bean="product2"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- OrderService Bean -->
+    <bean id="orderService" class="hw1.xml.OrderService">
+        <property name="shoppingCart" ref="shoppingCart"/>
+    </bean>
+
+</beans>
