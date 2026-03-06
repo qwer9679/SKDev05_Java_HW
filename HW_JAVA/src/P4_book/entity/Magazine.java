@@ -6,7 +6,8 @@ public class Magazine extends Publication {
 	public Magazine() {}
 	
 	public Magazine(String title, String publishDate, int page, int price, String publishPeriod) {
-		
+		super(title, publishDate, page, price);
+		this.publishPeriod = publishPeriod;
 	}
 	
 	public String getPublishPeriod() {
@@ -17,7 +18,9 @@ public class Magazine extends Publication {
 		this.publishPeriod = changePublishPeriod;
 	}
 	
+	@Override
 	public String toString() {
-		return "entity.Magazine.java";
+		return "[잡지] 발행주기 :" + publishPeriod + ", " + getPage() + "쪽, " + 
+	getPrice() + "원, 출판일 : " + getPublishDate();
 	}
 }

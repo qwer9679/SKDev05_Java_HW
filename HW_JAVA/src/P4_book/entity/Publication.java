@@ -8,8 +8,11 @@ public class Publication {
 	
 	public Publication() {}
 	
-	public Publication(String title, String PublishDate, int page, int price) {
-		
+	public Publication(String title, String publishDate, int page, int price) {
+        this.title = title;
+        this.publishDate = publishDate;
+        this.page = page;
+        this.price = price;
 	}
 	
 	public String getTitle() {
